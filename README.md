@@ -1,4 +1,4 @@
-# Gesture-Based Mouse Control Project
+# Gesture-Based Mouse Control 
 
 An innovative way to control your mouse through simple hand gestures. This project uses computer vision and machine learning techniques to detect hand gestures and control mouse movements in real time.
 
@@ -34,11 +34,8 @@ Follow these steps to set up and run the project locally:
 3. (Optional) Install Docker if you want to run this project in a containerized environment.
 
 ### Steps
-1. Clone this repository:
-    ```bash
-    git clone https://github.com/your-username/gesture-mouse-control.git
-    cd gesture-mouse-control
-    ```
+1. Clone this repository
+  
 2. Install required Python packages:
     ```bash
     pip install -r requirements.txt

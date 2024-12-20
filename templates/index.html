@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Mouse Control Project</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>    
+        AOS.init();
+    </script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    <style>
+        .hero {
+            background: url("{{ url_for('static', filename='images/background.jpg') }}") no-repeat center center/cover;
+            height: 100vh; /* Full viewport height */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white; /* Ensures text stands out */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Adds a shadow for better readability */
+        }
+
+        /* Add background image to Download section */
+        #download {
+            background: url("{{ url_for('static', filename='images/bg2.jpg') }}") no-repeat center center/cover;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Live Mouse Control</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Background Image -->
+    <section class="hero">
+        <div class="text-center">
+            <h1 class="display-4">Gesture Based Live Mouse Control</h1>
+            <p class="lead">An innovative way to control your mouse through simple hand gestures.</p>
+        </div>
+    </section>
+
+    <!-- Project Overview -->
+    <section id="overview" class="container mt-5">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="{{ url_for('static', filename='images/gesture-control.jpg') }}" class="img-fluid rounded overview-img" alt="Hand Gesture">
+            </div>
+            <div class="col-md-6">
+                <h2 class="section-title">Project Overview</h2>
+                <p>This project uses computer vision and machine learning to detect hand gestures that control mouse movements on the screen. It employs technologies such as OpenCV, Mediapipe, and PyAutoGUI to achieve this real-time interaction.</p>
+            </div>
+        </div>
+    </section>
+
+   <!-- Features Section -->
+<section id="features" class="container py-5">
+    <h2 class="section-title text-center">Key Features</h2>
+    <div class="row text-center mt-4">
+        <!-- Mouse Movement Feature -->
+        <div class="col-md-4">
+            <div class="card" style="border: 1px solid #dee2e6; border-radius: 10px; transition: transform 0.3s ease-in-out;">
+                <div class="card-body text-center">
+                    <img src="{{ url_for('static', filename='images/hand-movement.png') }}" alt="Mouse Movement" class="card-img-top feature-img" style="width: 80%; max-width: 300px; margin: 0 auto; border-top-left-radius: 10px; border-top-right-radius: 10px; transition: transform 0.3s;">
+                    <h4 class="card-title mt-3">Mouse Movement</h4>
+                    <p class="card-text">Control mouse cursor with smooth hand gestures.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Left Click Feature -->
+        <div class="col-md-4">
+            <div class="card" style="border: 1px solid #dee2e6; border-radius: 10px; transition: transform 0.3s ease-in-out;">
+                <div class="card-body text-center">
+                    <img src="{{ url_for('static', filename='images/left-click.png') }}" alt="Left Click" class="card-img-top feature-img" style="width: 80%; max-width: 300px; margin: 0 auto; border-top-left-radius: 10px; border-top-right-radius: 10px; transition: transform 0.3s;">
+                    <h4 class="card-title mt-3">Left Click</h4>
+                    <p class="card-text">Perform left-click using thumb and index finger gestures.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Click Feature -->
+        <div class="col-md-4">
+            <div class="card" style="border: 1px solid #dee2e6; border-radius: 10px; transition: transform 0.3s ease-in-out;">
+                <div class="card-body text-center">
+                    <img src="{{ url_for('static', filename='images/right-click.png') }}" alt="Right Click" class="card-img-top feature-img" style="width: 80%; max-width: 300px; margin: 0 auto; border-top-left-radius: 10px; border-top-right-radius: 10px; transition: transform 0.3s;">
+                    <h4 class="card-title mt-3">Right Click</h4>
+                    <p class="card-text">Trigger right-click actions with specific hand movements.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Zoom In, Zoom Out, Screenshot Features -->
+    <div class="row text-center mt-4">
+        <!-- Zoom In -->
+        <div class="col-md-4">
+            <div class="card" style="border: 1px solid #dee2e6; border-radius: 10px; transition: transform 0.3s ease-in-out;">
+                <div class="card-body text-center">
+                    <img src="{{ url_for('static', filename='images/zoom-in.png') }}" alt="Zoom In" class="card-img-top feature-img" style="width: 80%; max-width: 300px; margin: 0 auto; border-top-left-radius: 10px; border-top-right-radius: 10px; transition: transform 0.3s;">
+                    <h4 class="card-title mt-3">Zoom In</h4>
+                    <p class="card-text">Zoom in on the screen with specific hand gestures.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Zoom Out -->
+        <div class="col-md-4">
+            <div class="card" style="border: 1px solid #dee2e6; border-radius: 10px; transition: transform 0.3s ease-in-out;">
+                <div class="card-body text-center">
+                    <img src="{{ url_for('static', filename='images/zoom-out.png') }}" alt="Zoom Out" class="card-img-top feature-img" style="width: 80%; max-width: 300px; margin: 0 auto; border-top-left-radius: 10px; border-top-right-radius: 10px; transition: transform 0.3s;">
+                    <h4 class="card-title mt-3">Zoom Out</h4>
+                    <p class="card-text">Zoom out on the screen with specific hand gestures.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Screenshot -->
+        <div class="col-md-4">
+            <div class="card" style="border: 1px solid #dee2e6; border-radius: 10px; transition: transform 0.3s ease-in-out;">
+                <div class="card-body text-center">
+                    <img src="{{ url_for('static', filename='images/screenshot.png') }}" alt="Screenshot" class="card-img-top feature-img" style="width: 80%; max-width: 300px; margin: 0 auto; border-top-left-radius: 10px; border-top-right-radius: 10px; transition: transform 0.3s;">
+                    <h4 class="card-title mt-3">Screenshot</h4>
+                    <p class="card-text">Capture the screen with a simple hand gesture.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+    <!-- Live Demo Section -->
+    <section id="live-demo" class="bg-light py-5 text-center">
+        <div class="container">
+            <h2 class="section-title">Live Demo</h2>
+            <p>Experience our Gesture-Based Mouse Control live in action!</p>
+            <a href="/live-demo" class="btn btn-primary btn-lg">Show Live Demo</a>
+        </div>
+    </section>
+ 
+    <!-- Applications Section -->
+<section id="applications" class="container py-5">
+    <h3 class="text-center" style="color: #007bff; font-size: 2.25rem;">Applications:</h3> <!-- Adjusted Heading Size -->
+    <p class="text-center" style="color: #1e3d58;">The potential applications for this project are vast and can be extended to a variety of domains, including:</p>
+    <ul class="list-unstyled">
+        <li class="mb-3">
+            <div class="card p-3" style="background-color: #eaf1f7; border-left: 5px solid #1e3d58;">
+                <h5 class="card-title" style="color: #1e3d58;">Accessibility</h5>
+                <p class="card-text">This system can be used to provide a hands-free computing experience for people with disabilities or limited mobility.</p>
+            </div>
+        </li>
+        <li class="mb-3">
+            <div class="card p-3" style="background-color: #eaf1f7; border-left: 5px solid #1e3d58;">
+                <h5 class="card-title" style="color: #1e3d58;">Virtual Reality (VR) and Augmented Reality (AR)</h5>
+                <p class="card-text">Gesture-based control is an essential component of VR and AR applications, providing users with a more immersive and natural interaction experience.</p>
+            </div>
+        </li>
+        <li class="mb-3">
+            <div class="card p-3" style="background-color: #eaf1f7; border-left: 5px solid #1e3d58;">
+                <h5 class="card-title" style="color: #1e3d58;">Gaming</h5>
+                <p class="card-text">Hand gestures could be mapped to specific actions in games, allowing for a more immersive and interactive gaming experience.</p>
+            </div>
+        </li>
+        <li class="mb-3">
+            <div class="card p-3" style="background-color: #eaf1f7; border-left: 5px solid #1e3d58;">
+                <h5 class="card-title" style="color: #1e3d58;">Presentation Control</h5>
+                <p class="card-text">Gesture-based control can be used during presentations, allowing presenters to control slides, navigate documents, and interact with digital content without needing physical input devices.</p>
+            </div>
+        </li>
+        <li class="mb-3">
+            <div class="card p-3" style="background-color: #eaf1f7; border-left: 5px solid #1e3d58;">
+                <h5 class="card-title" style="color: #1e3d58;">Medical and Research</h5>
+                <p class="card-text">Gesture-based interaction can be used in research or medical fields, such as in robotic surgery or controlling machines in sterile environments where touch is not ideal.</p>
+            </div>
+        </li>
+    </ul>
+</section>
+
+    <!-- Download Section with Background -->
+    <section id="download" class="text-white py-5 text-center" style="background-color: #add8e6; /* Light Blue Background */">
+        <div class="container">
+            <h2 class="section-title" style="color: #1e3d58;">Download the Project</h2>
+            <p style="color: #1e3d58;">Get access to the source code and project files to run it on your own machine.</p>
+            <a href="{{ url_for('static', filename='project-files.zip') }}" class="btn btn-dark btn-lg download-btn">Download Project Files</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-4">
+        <p>&copy; 2024 Live Mouse Control Project | Created by Group 2</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

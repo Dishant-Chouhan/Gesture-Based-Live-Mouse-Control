@@ -1,0 +1,5 @@
+Flask==2.3.0
+opencv-python==4.5.5.64
+mediapipe==0.9.1.0
+pyautogui==0.9.53
+pynput==1.7.6

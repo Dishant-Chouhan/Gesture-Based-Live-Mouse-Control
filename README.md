@@ -11,10 +11,6 @@ An innovative way to control your mouse through simple hand gestures. This proje
 - **Zoom In & Zoom Out**: Use hand gestures to zoom in and out of the screen.
 - **Screenshot**: Capture the screen with a simple hand gesture.
 
-## Demo
-
-Experience a live demo of the project that showcases how hand gestures control the mouse in real time. The live feed displays gesture tracking and actions being performed.
-
 ## Applications
 
 This project has the potential to be used in various domains:
